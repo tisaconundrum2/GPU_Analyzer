@@ -118,8 +118,8 @@ class GPUtil_data():
             "usage_70": str(self.gpu_data[8]),
             "usage_80": str(self.gpu_data[9]),
             "usage_90": str(self.gpu_data[10]),
-            "User": str(self.gpu_data[11]),
-            "Date": str(self.gpu_data[12]),
+            "users": str(self.gpu_data[11]),
+            "OrderDate": str(self.gpu_data[12]),
         }
         path = 'http://cidse-gputil.cidse.dhcp.asu.edu/get_data.php'  # the url you want to POST to
         req = requests.post(path, mydata)
