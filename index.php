@@ -5,16 +5,6 @@ if (mysqli_connect_errno()) {
     echo $mysqli_connect_error();
     exit();
 }
-$sql = "
-DELETE FROM `computers` 
-WHERE ComputerName='" . mysqli_real_escape_string($cxn, $_POST['ComputerName']) . "' 
-AND OrderDate='" . mysqli_real_escape_string($cxn, $_POST['Date']) . "' 
-AND users='" . mysqli_real_escape_string($cxn, $_POST['User']) . "';
-";
-
-echo $sql;
-mysqli_query($cxn, $sql);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
