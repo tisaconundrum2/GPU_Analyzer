@@ -69,8 +69,8 @@ if (mysqli_connect_errno()) {
                         </a>
                     </li>
                     <?php
-                    $ComputerNames = array(mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers"));
-                    foreach ($ComputerNames as $computerName){
+                    $result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
+                    while ($row = mysqli_fetch_assoc($result)) {
                         echo "<li class=\"nav-item\">";
                         echo "<a class=\"nav-link\" href=\"#\">";
                         echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"";
@@ -80,7 +80,7 @@ if (mysqli_connect_errno()) {
                         echo "<polyline points=\"2 17 12 22 22 17\"></polyline>";
                         echo "<polyline points=\"2 12 12 17 22 12\"></polyline>";
                         echo "</svg>";
-                        echo $computerName;
+                        echo $row['ComputerName'];
                         echo "</a>";
                         echo "</li>";
                     }
