@@ -3,7 +3,6 @@ include __DIR__ . '/../src/connect.php';
 if (mysqli_connect_errno()) {
     echo "Connect failed: ";
     echo $mysqli_connect_error();
-    exit();
 }
 ?>
 <!DOCTYPE html>
