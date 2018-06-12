@@ -69,7 +69,7 @@ if (mysqli_connect_errno()) {
                         </a>
                     </li>
                     <?php
-                    $ComputerNames = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
+                    $ComputerNames = array(mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers"));
                     foreach ($ComputerNames as $computerName){
                         echo "<li class=\"nav-item\">";
                         echo "<a class=\"nav-link\" href=\"#\">";
