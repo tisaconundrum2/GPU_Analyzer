@@ -75,7 +75,9 @@ if (mysqli_connect_errno()) {
                         echo "<polyline points=\"2 17 12 22 22 17\"></polyline>";
                         echo "<polyline points=\"2 12 12 17 22 12\"></polyline>";
                         echo "</svg>";
-                        echo $row['ComputerName'];
+                        if ($row['ComputerName'] != ''){
+                            echo $row['ComputerName'] != '';
+                        }
                         echo "</a>";
                         echo "</li>";
                     }
