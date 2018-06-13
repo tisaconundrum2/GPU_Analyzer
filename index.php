@@ -63,11 +63,6 @@ if (mysqli_connect_errno()) {
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            NULL
-                        </a>
-                    </li>
                     <?php
                     $result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
                     while ($row = mysqli_fetch_assoc($result)) {
