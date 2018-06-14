@@ -63,7 +63,6 @@ if (mysqli_connect_errno()) {
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                    TEST
                     <?php
                     // For the side, shows all the available computers
                     $result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
