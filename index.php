@@ -76,11 +76,7 @@ if (mysqli_connect_errno()) {
                         echo "<polyline points=\"2 17 12 22 22 17\"></polyline>";
                         echo "<polyline points=\"2 12 12 17 22 12\"></polyline>";
                         echo "</svg>";
-                        if ($row['OrderDate'] == '0000-00-00') {
-                            echo null;
-                        } else {
-                            echo $row['ComputerName'];
-                        }
+//                        echo $row['ComputerName'];
                         echo "</a>";
                         echo "</li>";
                     }
