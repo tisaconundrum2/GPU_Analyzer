@@ -151,8 +151,8 @@ if (mysqli_connect_errno()) {
                     }
 
                     $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='EN4073254W'");
-                    echo "<tr>";
                     while ($row = mysqli_fetch_row($result)) {
+                        echo "<tr>";
                         table_td($row['ComputerName']);
                         table_td($row['usage_0']);
                         table_td($row['usage_10']);
@@ -166,8 +166,8 @@ if (mysqli_connect_errno()) {
                         table_td($row['usage_90']);
                         table_td($row['users']);
                         table_td($row['OrderDate']);
+                        echo "</tr>";
                     }
-                    echo "</tr>";
                     ?>
                     </tbody>
                 </table>
