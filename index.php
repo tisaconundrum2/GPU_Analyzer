@@ -66,7 +66,7 @@ if (mysqli_connect_errno()) {
                     <?php
                     // For the side, shows all the available computers
                     $result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_array($result)) {
                         echo "<li class=\"nav-item\">";
                         echo "<a class=\"nav-link\" href=\"#\">";
                         echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"";
