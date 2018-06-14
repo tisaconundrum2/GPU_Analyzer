@@ -14,6 +14,8 @@ $sql = "
 
 mysqli_query($cxn, $sql);
 
+
 $fields = ['ComputerName', 'usage_0', 'usage_10', 'usage_20', 'usage_30', 'usage_40', 'usage_50', 'usage_60', 'usage_70', 'usage_80', 'usage_90', 'users', 'OrderDate'];
 $sql = composeInsertSql($fields, getValuesFromPost($fields));
+#
 mysqli_query($cxn, $sql);

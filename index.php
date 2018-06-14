@@ -64,6 +64,7 @@ if (mysqli_connect_errno()) {
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <?php
+                    // For the side, shows all the available computers
                     $result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<li class=\"nav-item\">";
@@ -75,7 +76,7 @@ if (mysqli_connect_errno()) {
                         echo "<polyline points=\"2 17 12 22 22 17\"></polyline>";
                         echo "<polyline points=\"2 12 12 17 22 12\"></polyline>";
                         echo "</svg>";
-                        if ($row['ComputerName'] != null){
+                        if ($row['ComputerName'] !== null){
                             echo $row['ComputerName'];
                         }
                         echo "</a>";
