@@ -76,7 +76,7 @@ if (mysqli_connect_errno()) {
                         echo "<polyline points=\"2 17 12 22 22 17\"></polyline>";
                         echo "<polyline points=\"2 12 12 17 22 12\"></polyline>";
                         echo "</svg>";
-                        if ($row['ComputerName'] !== null){
+                        if ($row['ComputerName'] !== null) {
                             echo $row['ComputerName'];
                         }
                         echo "</a>";
@@ -144,126 +144,31 @@ if (mysqli_connect_errno()) {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>daprogrammer-OptiPlex-9030-AIO</td>
-                        <td>16</td>
-                        <td>19</td>
-                        <td>54</td>
-                        <td>92</td>
-                        <td>97</td>
-                        <td>56</td>
-                        <td>97</td>
-                        <td>66</td>
-                        <td>31</td>
-                        <td>85</td>
-                        <td>da-programmer</td>
-                        <td>2018-06-07</td>
-                    </tr>
-                    <tr>
-                        <td>daprogrammer-OptiPlex-9030-AIO</td>
-                        <td>21</td>
-                        <td>22</td>
-                        <td>99</td>
-                        <td>51</td>
-                        <td>35</td>
-                        <td>13</td>
-                        <td>67</td>
-                        <td>78</td>
-                        <td>24</td>
-                        <td>2</td>
-                        <td>da-programmer</td>
-                        <td>2018-06-08</td>
-                    </tr>
-                    <tr>
-                        <td>daprogrammer-OptiPlex-9030-AIO</td>
-                        <td>74</td>
-                        <td>78</td>
-                        <td>56</td>
-                        <td>85</td>
-                        <td>72</td>
-                        <td>83</td>
-                        <td>95</td>
-                        <td>18</td>
-                        <td>33</td>
-                        <td>66</td>
-                        <td>da-programmer</td>
-                        <td>2018-06-09</td>
-                    </tr>
-                    <tr>
-                        <td>daprogrammer-OptiPlex-9030-AIO</td>
-                        <td>15</td>
-                        <td>78</td>
-                        <td>60</td>
-                        <td>1</td>
-                        <td>60</td>
-                        <td>13</td>
-                        <td>30</td>
-                        <td>96</td>
-                        <td>72</td>
-                        <td>7</td>
-                        <td>da-programmer</td>
-                        <td>2018-06-10</td>
-                    </tr>
-                    <tr>
-                        <td>daprogrammer-OptiPlex-9030-AIO</td>
-                        <td>72</td>
-                        <td>94</td>
-                        <td>41</td>
-                        <td>68</td>
-                        <td>77</td>
-                        <td>18</td>
-                        <td>36</td>
-                        <td>35</td>
-                        <td>81</td>
-                        <td>13</td>
-                        <td>da-programmer</td>
-                        <td>2018-06-11</td>
-                    </tr>
-                    <tr>
-                        <td>daprogrammer-OptiPlex-9030-AIO</td>
-                        <td>79</td>
-                        <td>51</td>
-                        <td>62</td>
-                        <td>12</td>
-                        <td>12</td>
-                        <td>12</td>
-                        <td>32</td>
-                        <td>41</td>
-                        <td>72</td>
-                        <td>26</td>
-                        <td>da-programmer</td>
-                        <td>2018-06-12</td>
-                    </tr>
-                    <tr>
-                        <td>daprogrammer-OptiPlex-9030-AIO</td>
-                        <td>14</td>
-                        <td>66</td>
-                        <td>25</td>
-                        <td>98</td>
-                        <td>99</td>
-                        <td>51</td>
-                        <td>34</td>
-                        <td>64</td>
-                        <td>99</td>
-                        <td>66</td>
-                        <td>da-programmer</td>
-                        <td>2018-06-13</td>
-                    </tr>
-                    <tr>
-                        <td>daprogrammer-OptiPlex-9030-AIO</td>
-                        <td>46</td>
-                        <td>0</td>
-                        <td>33</td>
-                        <td>13</td>
-                        <td>57</td>
-                        <td>45</td>
-                        <td>33</td>
-                        <td>30</td>
-                        <td>1</td>
-                        <td>44</td>
-                        <td>da-programmer</td>
-                        <td>2018-06-14</td>
-                    </tr>
+                    <?php
+                    function table_td($string)
+                    {
+                        echo "<td>" . $string . "</td>";
+                    }
+
+                    $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='EN4073254W'");
+                    echo "<tr>"
+                    while ($row = mysqli_fetch_row($result)) {
+                        table_td($row['ComputerName']);
+                        table_td($row['usage_0']);
+                        table_td($row['usage_10']);
+                        table_td($row['usage_20']);
+                        table_td($row['usage_30']);
+                        table_td($row['usage_40']);
+                        table_td($row['usage_50']);
+                        table_td($row['usage_60']);
+                        table_td($row['usage_70']);
+                        table_td($row['usage_80']);
+                        table_td($row['usage_90']);
+                        table_td($row['users']);
+                        table_td($row['OrderDate']);
+                    }
+                    echo "</tr>"
+                    ?>
                     </tbody>
                 </table>
             </div>
