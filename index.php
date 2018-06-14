@@ -150,7 +150,7 @@ if (mysqli_connect_errno()) {
                         echo "<td>" . $string . "</td>";
                     }
                     $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='daprogrammer-OptiPlex-9030-AIO'");
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         table_td($row['ComputerName']);
                         table_td($row['usage_0']);
