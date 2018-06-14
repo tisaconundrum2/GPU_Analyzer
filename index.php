@@ -67,18 +67,20 @@ if (mysqli_connect_errno()) {
                     // For the side, shows all the available computers
                     $result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
                     while ($row = mysqli_fetch_array($result)) {
-                        echo "<li class=\"nav-item\">";
-                        echo "<a class=\"nav-link\" href=\"#\">";
-                        echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"";
-                        echo "fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"";
-                        echo "stroke-linejoin=\"round\" class=\"feather feather-layers\">";
-                        echo "<polygon points=\"12 2 2 7 12 12 22 7 12 2\"></polygon>";
-                        echo "<polyline points=\"2 17 12 22 22 17\"></polyline>";
-                        echo "<polyline points=\"2 12 12 17 22 12\"></polyline>";
-                        echo "</svg>";
-//                        echo $row['ComputerName'];
-                        echo "</a>";
-                        echo "</li>";
+                        if ($row['OrderDate'] != null) {
+                            echo "<li class=\"nav-item\">";
+                            echo "<a class=\"nav-link\" href=\"#\">";
+                            echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"";
+                            echo "fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"";
+                            echo "stroke-linejoin=\"round\" class=\"feather feather-layers\">";
+                            echo "<polygon points=\"12 2 2 7 12 12 22 7 12 2\"></polygon>";
+                            echo "<polyline points=\"2 17 12 22 22 17\"></polyline>";
+                            echo "<polyline points=\"2 12 12 17 22 12\"></polyline>";
+                            echo "</svg>";
+                            echo $row['ComputerName'];
+                            echo "</a>";
+                            echo "</li>";
+                        }
                     }
                     ?>
                 </ul>
@@ -147,6 +149,7 @@ if (mysqli_connect_errno()) {
                     {
                         echo "<td>" . $string . "</td>";
                     }
+
                     $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='daprogrammer-OptiPlex-9030-AIO'");
                     while ($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
