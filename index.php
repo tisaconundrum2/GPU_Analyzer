@@ -76,7 +76,7 @@ if (mysqli_connect_errno()) {
                         echo "<polyline points=\"2 17 12 22 22 17\"></polyline>";
                         echo "<polyline points=\"2 12 12 17 22 12\"></polyline>";
                         echo "</svg>";
-                        if ($row['ComputerName'] !== null) {
+                        if ($row['OrderDate'] != '0000-00-00') {
                             echo $row['ComputerName'];
                         }
                         echo "</a>";
@@ -149,9 +149,8 @@ if (mysqli_connect_errno()) {
                     {
                         echo "<td>" . $string . "</td>";
                     }
-
                     $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='daprogrammer-OptiPlex-9030-AIO'");
-                    while ($row = mysqli_fetch_row($result)) {
+                    while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
                         table_td($row['ComputerName']);
                         table_td($row['usage_0']);
