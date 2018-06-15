@@ -127,7 +127,7 @@ $id = $_GET['id'];
             <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1240" height="523"
                     style="display: block; width: 1240px; height: 523px;"></canvas>
 
-            <h2>daprogrammer-OptiPlex-9030-AIO</h2>
+            <h2><?php echo $id?></h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
