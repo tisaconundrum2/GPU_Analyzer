@@ -73,7 +73,7 @@ $id = $_GET['id'];
                     while ($row = mysqli_fetch_array($result)) {
                         if ($row['ComputerName'] != null) {
                             echo "<li class=\"nav-item\">";
-                            echo "<a class=\"nav-link\" href=\".?id=\"" . $row['ComputerName'] . ">";
+                            echo "<a class=\"nav-link\" href=\".?id=" . $row['ComputerName'] . "\">";
                             echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"";
                             echo "fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"";
                             echo "stroke-linejoin=\"round\" class=\"feather feather-layers\">";
