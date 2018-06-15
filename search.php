@@ -84,7 +84,7 @@ $q = $_GET['q'];
                name="q">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="http://cidse-gputil.cidse.dhcp.asu.edu/?id=EN4073254W#">Sign out</a>
+                <a class="nav-link" href="index.php">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -132,22 +132,13 @@ $q = $_GET['q'];
                     </thead>
                     <tbody>
                     <?php
-
-
+                    $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName LIKE '$q'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo "<tr>";
+                        echo "<td>" . $row['ComputerName'] . "</td>";
+                        echo "</tr>";
+                    }
                     ?>
-
-                    <tr>
-                        <td>EN4073254W</td>
-                    </tr>
-                    <tr>
-                        <td>EN4073254W</td>
-                    </tr>
-                    <tr>
-                        <td>EN4073254W</td>
-                    </tr>
-                    <tr>
-                        <td>EN4073254W</td>
-                    </tr>
                     </tbody>
                 </table>
             </div>
