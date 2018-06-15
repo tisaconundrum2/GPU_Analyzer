@@ -1,3 +1,14 @@
+<?php
+include __DIR__ . '/../src/connect.php';
+if (mysqli_connect_errno()) {
+    echo "Connect failed: ";
+    echo $mysqli_connect_error();
+}
+//http://cidse-gputil.cidse.dhcp.asu.edu/test.php?compNameRedirect=42
+//This will spit out 42 into the window
+//This means we can specify directly with links
+$q = $_GET['q'];
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0053)http://cidse-gputil.cidse.dhcp.asu.edu/?id=EN4073254W -->
 <html lang="en">
@@ -68,10 +79,9 @@
 <body>
 <form action="search.php">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU
-            - GPU utilizations</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU - GPU utilizations</a>
         <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text"
-               name="id">
+               name="q">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a class="nav-link" href="http://cidse-gputil.cidse.dhcp.asu.edu/?id=EN4073254W#">Sign out</a>
@@ -121,6 +131,11 @@
 
                     </thead>
                     <tbody>
+                    <?php
+
+
+                    ?>
+
                     <tr>
                         <td>EN4073254W</td>
                     </tr>

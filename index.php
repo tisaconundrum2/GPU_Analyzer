@@ -53,15 +53,16 @@ $id = $_GET['id'];
 
 <body>
 <form action="search.php">
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU - GPU utilizations</a>
-    <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text" name="id">
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
-        </li>
-    </ul>
-</nav>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU - GPU utilizations</a>
+        <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text"
+               name="q">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </nav>
 </form>
 
 <div class="container-fluid">
@@ -129,7 +130,7 @@ $id = $_GET['id'];
             <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1240" height="523"
                     style="display: block; width: 1240px; height: 523px;"></canvas>
 
-            <h2><?php echo $id?></h2>
+            <h2><?php echo $id ?></h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
