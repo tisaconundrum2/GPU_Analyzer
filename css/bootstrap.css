@@ -161,14 +161,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #333;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #004288;
   text-decoration: underline;
 }
 
@@ -1518,8 +1518,6 @@ pre code {
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
-  font-weight: 500;
-  color: #333;
 }
 
 .table th,
