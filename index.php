@@ -154,7 +154,7 @@ $id = $_GET['id'];
                         echo "<td>" . $string . "</td>";
                     }
 
-                    $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName=$compNameRedirect");
+                    $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName=$id");
                     while ($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         table_td($row['ComputerName']);
