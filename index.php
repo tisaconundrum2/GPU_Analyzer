@@ -54,7 +54,7 @@ $id = $_GET['id'];
 <body>
 <form action="search.php">
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">ASU - GPU utilizations</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU - GPU utilizations</a>
     <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text" name="id">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">

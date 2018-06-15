@@ -68,7 +68,7 @@
 <body>
 <form action="search.php">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://cidse-gputil.cidse.dhcp.asu.edu/?id=EN4073254W#">ASU
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU
             - GPU utilizations</a>
         <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text"
                name="id">
