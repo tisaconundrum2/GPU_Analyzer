@@ -66,7 +66,7 @@
 </head>
 
 <body>
-<form action="http://cidse-gputil.cidse.dhcp.asu.edu/test.php">
+<form action="search.php">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://cidse-gputil.cidse.dhcp.asu.edu/?id=EN4073254W#">ASU
             - GPU utilizations</a>
