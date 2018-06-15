@@ -52,17 +52,17 @@ $id = $_GET['id'];
 </head>
 
 <body>
+<form action="test.php">
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">ASU - GPU utilizations</a>
-    <form action="test.php">
     <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text" name="id">
-    </form>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
             <a class="nav-link" href="#">Sign out</a>
         </li>
     </ul>
 </nav>
+</form>
 
 <div class="container-fluid">
     <div class="row">
