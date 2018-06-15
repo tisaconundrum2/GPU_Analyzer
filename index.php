@@ -4,6 +4,10 @@ if (mysqli_connect_errno()) {
     echo "Connect failed: ";
     echo $mysqli_connect_error();
 }
+//http://cidse-gputil.cidse.dhcp.asu.edu/test.php?compNameRedirect=42
+//This will spit out 42 into the window
+//This means we can specify directly with links
+$id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +73,7 @@ if (mysqli_connect_errno()) {
                     while ($row = mysqli_fetch_array($result)) {
                         if ($row['ComputerName'] != null) {
                             echo "<li class=\"nav-item\">";
-                            echo "<a class=\"nav-link\" href=\"#\">";
+                            echo "<a class=\"nav-link\" href=\".?id=\"" . $id . ">";
                             echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"";
                             echo "fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"";
                             echo "stroke-linejoin=\"round\" class=\"feather feather-layers\">";
@@ -150,7 +154,7 @@ if (mysqli_connect_errno()) {
                         echo "<td>" . $string . "</td>";
                     }
 
-                    $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='daprogrammer-OptiPlex-9030-AIO'");
+                    $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName=$compNameRedirect");
                     while ($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         table_td($row['ComputerName']);
