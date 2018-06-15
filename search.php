@@ -132,7 +132,7 @@ $q = $_GET['q'];
                     </thead>
                     <tbody>
                     <?php
-                    $result = mysqli_query($cxn, "SELECT * FROM `computers` WHERE ComputerName LIKE '%$q%'");
+                    $result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers WHERE ComputerName LIKE '%$q%'");
                     while ($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         echo "<td>" . $row['ComputerName'] . "</td>";
