@@ -215,9 +215,9 @@ $id = $_GET['id'];
                 ],
                 lineTension: 0,
                 backgroundColor: 'transparent',
-                borderColor: '#007bff',
+                borderColor: '#8c1d40',
                 borderWidth: 4,
-                pointBackgroundColor: '#007bff'
+                pointBackgroundColor: '#8c1d40'
             }]
         },
         options: {
