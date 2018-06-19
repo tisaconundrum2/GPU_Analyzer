@@ -88,12 +88,16 @@ $id = $_GET['id'];
                                             </svg>
                                         %s
                                         </a>
+                                        <ul>
                             ", $row['ComputerName'], $row['ComputerName']); // print out computer names
-                            while ($row = mysqli_fetch_array($user_result)) // print out user names
-                            printf("
+                            while ($row = mysqli_fetch_array($user_result)){
+                                printf("
                                     <li><a class=\"nav-link\" href=\".?user=%s\">%s</a></li>
                             ", $username, $username);
-                            printf("</li>");
+                            } // print out user names
+                            printf("
+                                        </ul>
+                                        </li>");
                         }
                     }
                     ?>
@@ -211,13 +215,12 @@ $id = $_GET['id'];
 <!-- Graphs -->
 <script src="js/Chart.js"></script>
 <script>
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
+    const ctx = document.getElementById("myChart");
+    const myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ["2018-06-07", "2018-06-08", "2018-06-09", "2018-06-10", "2018-06-11", "2018-06-12", "2018-06-13", "2018-06-14"],
             datasets: [{
-
                 data: [51.03, 42.14, 40.94, 46.23, 37.46, 40.3, 50.31, 45.36
                 ],
                 lineTension: 0,
