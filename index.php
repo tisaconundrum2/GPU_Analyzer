@@ -73,8 +73,10 @@ $id = $_GET['id'];
                 <ul class="nav flex-column">
                     <?php
                     // For the side, shows all the available computers
-                    $result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
-                    while ($row = mysqli_fetch_array($result)) {
+                    $comp_result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
+                    while ($row = mysqli_fetch_array($comp_result)) {
+                        $query = "SELECT DISTINCT users FROM computers WHERE ComputerName='".$row['ComputerName']."'";
+                        $user_result = mysqli_query($cxn, $query);
                         if ($row['ComputerName'] != null) {
                             printf("
                                     <li class=\"nav-item\">
@@ -86,19 +88,24 @@ $id = $_GET['id'];
                                             </svg>
                                         %s
                                         </a>
-                                    </li>
-                            ", $row['ComputerName'], $row['ComputerName']);
+                            ", $row['ComputerName'], $row['ComputerName']); // print out computer names
+                            while ($row = mysqli_fetch_array($user_result)) // print out user names
+                            printf("
+                                    <li><a class=\"nav-link\" href=\".?user=%s\">%s</a></li>
+                            ", $username, $username);
+                            printf("</li>");
                         }
                     }
                     ?>
 
 
                 </ul>
+
             </div>
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"
+            <div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"
                  class="chartjs-size-monitor">
                 <div class="chartjs-size-monitor-expand"
                      style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
@@ -160,8 +167,8 @@ $id = $_GET['id'];
                         echo "<td>" . $string . "</td>";
                     }
 
-                    $result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id'");
-                    while ($row = mysqli_fetch_array($result)) {
+                    $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id'");
+                    while ($row = mysqli_fetch_array($comp_result)) {
                         echo "<tr>";
                         table_td($row['ComputerName']);
                         table_td($row['usage_0']);
@@ -192,7 +199,6 @@ $id = $_GET['id'];
 <script src="js/jquery-3.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.js"></script>
 
