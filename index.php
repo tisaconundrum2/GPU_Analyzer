@@ -75,7 +75,7 @@ $id = $_GET['id'];
                     // For the side, shows all the available computers
                     $comp_result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
                     while ($row = mysqli_fetch_array($comp_result)) {
-                        $query = "SELECT DISTINCT users FROM computers WHERE ComputerName='".$row['ComputerName']."'";
+                        $query = "SELECT DISTINCT users FROM computers WHERE ComputerName='" . $row['ComputerName'] . "'";
                         $user_result = mysqli_query($cxn, $query);
                         if ($row['ComputerName'] != null) {
                             printf("
@@ -90,7 +90,7 @@ $id = $_GET['id'];
                                         </a>
                                         <ul>
                             ", $row['ComputerName'], $row['ComputerName']); // print out computer names
-                            while ($row = mysqli_fetch_array($user_result)){
+                            while ($row = mysqli_fetch_array($user_result)) {
                                 printf("
                                     <li><a class=\"nav-link\" href=\".?user=%s\">%s</a></li>
                             ", $row['users'], $row['users']);
