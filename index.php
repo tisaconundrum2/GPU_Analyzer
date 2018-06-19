@@ -93,7 +93,7 @@ $id = $_GET['id'];
                             while ($row = mysqli_fetch_array($user_result)){
                                 printf("
                                     <li><a class=\"nav-link\" href=\".?user=%s\">%s</a></li>
-                            ", $username, $username);
+                            ", $row['users'], $row['users']);
                             } // print out user names
                             printf("
                                         </ul>
