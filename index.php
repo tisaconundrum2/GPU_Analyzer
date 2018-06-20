@@ -72,12 +72,9 @@ $id = $_GET['id'];
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <?php
-                    // For the side, shows all the available computers
-                    $comp_result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
-                    while ($row = mysqli_fetch_array($comp_result)) {
-                        $query = "SELECT DISTINCT users FROM computers WHERE ComputerName='" . $row['ComputerName'] . "'";
-                        $user_result = mysqli_query($cxn, $query);
-                        if ($row['ComputerName'] != null) {
+                    // For the side navbar, shows all the available computers
+                    while ($comp_name = mysqli_fetch_array(mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers"))) {
+                        if ($comp_name[0] != null) {
                             printf("
                                     <li class=\"nav-item\">
                                         <a class=\"nav-link\" href=\".?id=%s\">
@@ -89,20 +86,19 @@ $id = $_GET['id'];
                                         %s
                                         </a>
                                         <ul>
-                            ", $row['ComputerName'], $row['ComputerName']); // print out computer names
-                            while ($row = mysqli_fetch_array($user_result)) {
+                            ", $comp_name[0], $comp_name[0]); // print out computer names
+                            $query = "SELECT DISTINCT users FROM computers WHERE ComputerName='" . $comp_name[0] . "'";
+                            while ($user_name = mysqli_fetch_array(mysqli_query($cxn, $query))) { // print out user names
                                 printf("
-                                    <li><a class=\"nav-link\" href=\".?user=%s\">%s</a></li>
-                            ", $row['users'], $row['users']);
-                            } // print out user names
+                                    <li><a class=\"nav-link\" href=\".?id=%s&user=%s\">%s</a></li>
+                            ", $comp_name[0], $user_name[0], $user_name[0]);
+                            }
                             printf("
                                         </ul>
                                         </li>");
                         }
                     }
                     ?>
-
-
                 </ul>
 
             </div>
@@ -172,21 +168,21 @@ $id = $_GET['id'];
                     }
 
                     $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id'");
-                    while ($row = mysqli_fetch_array($comp_result)) {
+                    while ($user_name = mysqli_fetch_array($comp_result)) {
                         echo "<tr>";
-                        table_td($row['ComputerName']);
-                        table_td($row['usage_0']);
-                        table_td($row['usage_10']);
-                        table_td($row['usage_20']);
-                        table_td($row['usage_30']);
-                        table_td($row['usage_40']);
-                        table_td($row['usage_50']);
-                        table_td($row['usage_60']);
-                        table_td($row['usage_70']);
-                        table_td($row['usage_80']);
-                        table_td($row['usage_90']);
-                        table_td($row['users']);
-                        table_td($row['OrderDate']);
+                        table_td($user_name['ComputerName']);
+                        table_td($user_name['usage_0']);
+                        table_td($user_name['usage_10']);
+                        table_td($user_name['usage_20']);
+                        table_td($user_name['usage_30']);
+                        table_td($user_name['usage_40']);
+                        table_td($user_name['usage_50']);
+                        table_td($user_name['usage_60']);
+                        table_td($user_name['usage_70']);
+                        table_td($user_name['usage_80']);
+                        table_td($user_name['usage_90']);
+                        table_td($user_name['users']);
+                        table_td($user_name['OrderDate']);
                         echo "</tr>";
                     }
                     ?>
