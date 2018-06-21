@@ -164,26 +164,26 @@ $id = $_GET['id'];
                     <?php
                     function table_td($string)
                     {
-                        echo "<td>" . $string . "</td>";
+                    echo "<td>" . $string . "</td>";
                     }
 
                     $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id'");
                     while ($user_name = mysqli_fetch_array($comp_result)) {
-                        echo "<tr>";
-                        table_td($user_name['ComputerName']);
-                        table_td($user_name['usage_0']);
-                        table_td($user_name['usage_10']);
-                        table_td($user_name['usage_20']);
-                        table_td($user_name['usage_30']);
-                        table_td($user_name['usage_40']);
-                        table_td($user_name['usage_50']);
-                        table_td($user_name['usage_60']);
-                        table_td($user_name['usage_70']);
-                        table_td($user_name['usage_80']);
-                        table_td($user_name['usage_90']);
-                        table_td($user_name['users']);
-                        table_td($user_name['OrderDate']);
-                        echo "</tr>";
+                    echo "<tr>";
+                    table_td($user_name['ComputerName']);
+                    table_td($user_name['usage_0']);
+                    table_td($user_name['usage_10']);
+                    table_td($user_name['usage_20']);
+                    table_td($user_name['usage_30']);
+                    table_td($user_name['usage_40']);
+                    table_td($user_name['usage_50']);
+                    table_td($user_name['usage_60']);
+                    table_td($user_name['usage_70']);
+                    table_td($user_name['usage_80']);
+                    table_td($user_name['usage_90']);
+                    table_td($user_name['users']);
+                    table_td($user_name['OrderDate']);
+                    echo "</tr>";
                     }
                     ?>
                     </tbody>
