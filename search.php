@@ -143,10 +143,9 @@ $q = $_GET['q'];
                                             </div>
                                         </a>
                                     </td>
-                                </tr>", ".?id=".$row['ComputerName'], $row['ComputerName']);
+                                </tr>", ".?id=" . $row[0], $row[0]);
                     }
                     ?>
-
                     </tbody>
                 </table>
             </div>

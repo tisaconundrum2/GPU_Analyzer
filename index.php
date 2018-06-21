@@ -1,8 +1,7 @@
 <?php
 include __DIR__ . '/../src/connect.php';
 if (mysqli_connect_errno()) {
-    echo "Connect failed: ";
-    echo $mysqli_connect_error();
+    echo "Connect failed";
 }
 //http://cidse-gputil.cidse.dhcp.asu.edu/test.php?compNameRedirect=42
 //This will spit out 42 into the window
@@ -71,36 +70,8 @@ $id = $_GET['id'];
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                    <?php
-                    // For the side navbar, shows all the available computers
-                    while ($comp_name = mysqli_fetch_array(mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers"))) {
-                        if ($comp_name[0] != null) {
-                            printf("
-                                    <li class=\"nav-item\">
-                                        <a class=\"nav-link\" href=\".?id=%s\">
-                                            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-layers\">
-                                            <polygon points=\"12 2 2 7 12 12 22 7 12 2\"></polygon>
-                                            <polyline points=\"2 17 12 22 22 17\"></polyline>
-                                            <polyline points=\"2 12 12 17 22 12\"></polyline>
-                                            </svg>
-                                        %s
-                                        </a>
-                                        <ul>
-                            ", $comp_name[0], $comp_name[0]); // print out computer names
-                            $query = "SELECT DISTINCT users FROM computers WHERE ComputerName='" . $comp_name[0] . "'";
-                            while ($user_name = mysqli_fetch_array(mysqli_query($cxn, $query))) { // print out user names
-                                printf("
-                                    <li><a class=\"nav-link\" href=\".?id=%s&user=%s\">%s</a></li>
-                            ", $comp_name[0], $user_name[0], $user_name[0]);
-                            }
-                            printf("
-                                        </ul>
-                                        </li>");
-                        }
-                    }
-                    ?>
+                    <?php include 'navbar_left.php'?>
                 </ul>
-
             </div>
         </nav>
 
@@ -164,26 +135,26 @@ $id = $_GET['id'];
                     <?php
                     function table_td($string)
                     {
-                    echo "<td>" . $string . "</td>";
+                        echo "<td>" . $string . "</td>";
                     }
 
                     $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id'");
                     while ($user_name = mysqli_fetch_array($comp_result)) {
-                    echo "<tr>";
-                    table_td($user_name['ComputerName']);
-                    table_td($user_name['usage_0']);
-                    table_td($user_name['usage_10']);
-                    table_td($user_name['usage_20']);
-                    table_td($user_name['usage_30']);
-                    table_td($user_name['usage_40']);
-                    table_td($user_name['usage_50']);
-                    table_td($user_name['usage_60']);
-                    table_td($user_name['usage_70']);
-                    table_td($user_name['usage_80']);
-                    table_td($user_name['usage_90']);
-                    table_td($user_name['users']);
-                    table_td($user_name['OrderDate']);
-                    echo "</tr>";
+                        echo "<tr>";
+                        table_td($user_name['ComputerName']);
+                        table_td($user_name['usage_0']);
+                        table_td($user_name['usage_10']);
+                        table_td($user_name['usage_20']);
+                        table_td($user_name['usage_30']);
+                        table_td($user_name['usage_40']);
+                        table_td($user_name['usage_50']);
+                        table_td($user_name['usage_60']);
+                        table_td($user_name['usage_70']);
+                        table_td($user_name['usage_80']);
+                        table_td($user_name['usage_90']);
+                        table_td($user_name['users']);
+                        table_td($user_name['OrderDate']);
+                        echo "</tr>";
                     }
                     ?>
                     </tbody>
@@ -212,7 +183,7 @@ $id = $_GET['id'];
 <script src="js/Chart.js"></script>
 <script>
     const ctx = document.getElementById("myChart");
-    const myChart = new Chart(ctx, {
+    new Chart(ctx, {
         type: 'line',
         data: {
             labels: ["2018-06-07", "2018-06-08", "2018-06-09", "2018-06-10", "2018-06-11", "2018-06-12", "2018-06-13", "2018-06-14"],
