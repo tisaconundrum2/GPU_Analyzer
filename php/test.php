@@ -11,7 +11,7 @@ while ($comp_name = mysqli_fetch_array($stmtQuery1)) {
 
     $stmtQuery2 = mysqli_query($cxn, "SELECT DISTINCT users FROM computers WHERE ComputerName='$comp_name[0]'");
     while ($user_name = mysqli_fetch_array($stmtQuery2)) {
-        printf("\t%s\n",$user_name[0]);
+        printf("\t%s\n", $user_name[0]);
     }
     printf("\n");
 

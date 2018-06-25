@@ -1,5 +1,8 @@
 <?php
-
+include __DIR__ . '/../../src/connect.php';
+if (mysqli_connect_errno()) {
+    echo "Connect failed";
+}
 function getComputerNames($comp_name)
 {
     printf("
@@ -22,20 +25,20 @@ function getUserNames($comp_name, $user_name)
     printf("
 <li>
     <a class=\"nav-link\" href=\".?id=%s&user=%s\">%s</a>
-</li>", $comp_name, $user_name, $user_name); // print out user names
+</li>\n", $comp_name, $user_name, $user_name); // print out user names
 }
 
 // For the side navbar, shows all the available computers
-$result = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
-while ($comp_name = mysqli_fetch_array($result)) {
+$stmtQuery1 = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
+while ($comp_name = mysqli_fetch_array($stmtQuery1)) {
     if ($comp_name[0] != null) { // no null strings
         getComputerNames($comp_name[0]);
 
-        $result = mysqli_query($cxn, "SELECT DISTINCT users FROM computers WHERE ComputerName='$comp_name[0]'");
-        while ($user_name = mysqli_fetch_array($result)) {
+        $stmtQuery2 = mysqli_query($cxn, "SELECT DISTINCT users FROM computers WHERE ComputerName='$comp_name[0]'");
+        while ($user_name = mysqli_fetch_array($stmtQuery2)) {
             getUserNames($comp_name[0], $user_name[0]);
         }
-        printf("</ul>");
+        printf("</ul>\n");
     }
 }
 printf("</li>");
