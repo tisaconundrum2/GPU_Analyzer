@@ -10,7 +10,6 @@ if (mysqli_connect_errno()) {
 $id = $_GET['id'];
 $user = $_GET['user'];
 $question = $_GET['q'];
-echo $id . $user . $question
 ?>
 <!DOCTYPE html>
 <html lang="en">
