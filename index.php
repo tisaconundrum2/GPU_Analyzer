@@ -7,6 +7,7 @@ if (mysqli_connect_errno()) {
 //This will spit out 42 into the window
 //This means we can specify directly with links
 $id = $_GET['id'];
+$user = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,7 +139,7 @@ $id = $_GET['id'];
                         echo "<td>" . $string . "</td>";
                     }
 
-                    $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' users='$user'");
+                    $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' AND users='$user' ORDER BY `computers`.`OrderDate` ASC ");
                     while ($user_name = mysqli_fetch_array($comp_result)) {
                         echo "<tr>";
                         table_td($user_name['ComputerName']);
