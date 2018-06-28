@@ -7,7 +7,7 @@ if (mysqli_connect_errno()) {
 //This will spit out 42 into the window
 //This means we can specify directly with links
 $id = $_GET['id'];
-$user = $_GET['id'];
+$user = $_GET['user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
