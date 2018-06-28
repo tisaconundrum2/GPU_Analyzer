@@ -1,9 +1,9 @@
 <?php
-function getComputerNames($comp_name)
+function getComputerNames($comp_name, $query)
 {
     printf("
 <li class=\"nav-item\">
-    <a class=\"nav-link\" href=\".?id=%s\">
+    <a class=\"nav-link\" href=\".?id=%s&q=%s\">
         <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"
              stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"
              class=\"feather feather-layers\">
@@ -13,7 +13,7 @@ function getComputerNames($comp_name)
         </svg>
         %s
     </a>
-    <ul>", $comp_name, $comp_name);
+    <ul>", $comp_name, $query, $comp_name);
 }
 
 function getUserNames($comp_name, $user_name, $query)
@@ -34,7 +34,7 @@ function setSideBarNav($cxn, $query)
     }
     while ($comp_name = mysqli_fetch_array($stmtQuery1)) {
         if ($comp_name[0] != null) {
-            getComputerNames($comp_name[0]);
+            getComputerNames($comp_name[0], $query);
 
             $stmtQuery2 = mysqli_query($cxn, "SELECT DISTINCT users FROM computers WHERE ComputerName='$comp_name[0]'");
             while ($user_name = mysqli_fetch_array($stmtQuery2)) {
