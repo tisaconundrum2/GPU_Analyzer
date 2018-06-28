@@ -138,7 +138,7 @@ $id = $_GET['id'];
                         echo "<td>" . $string . "</td>";
                     }
 
-                    $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id'");
+                    $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' users='$user'");
                     while ($user_name = mysqli_fetch_array($comp_result)) {
                         echo "<tr>";
                         table_td($user_name['ComputerName']);
