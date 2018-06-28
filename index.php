@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . '/../src/connect.php';
+include './php/navbar_left.php';
 if (mysqli_connect_errno()) {
     echo "Connect failed";
 }
@@ -8,6 +9,8 @@ if (mysqli_connect_errno()) {
 //This means we can specify directly with links
 $id = $_GET['id'];
 $user = $_GET['user'];
+$question = $_GET['q'];
+echo $id . $user . $question
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +55,7 @@ $user = $_GET['user'];
 </head>
 
 <body>
-<form action="search.php">
+<form action="">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU - GPU utilizations</a>
         <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text"
@@ -71,7 +74,7 @@ $user = $_GET['user'];
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                    <?php include './php/navbar_left.php' ?>
+                    <?php setSideBarNav($cxn, $question) ?>
                 </ul>
             </div>
         </nav>
@@ -112,7 +115,14 @@ $user = $_GET['user'];
             <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1240" height="523"
                     style="display: block; width: 1240px; height: 523px;"></canvas>
 
-            <h2><?php echo $id .'-'. $user?></h2>
+            <h2><?php
+                if ($user != null) {
+                    echo $id . '-' . $user;
+                } else {
+                    echo $id;
+                }
+                ?>
+            </h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -139,7 +149,11 @@ $user = $_GET['user'];
                         echo "<td>" . $string . "</td>";
                     }
 
-                    $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' AND users='$user' ORDER BY `computers`.`OrderDate` ASC ");
+                    if ($user != null) {
+                        $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' AND users='$user' ORDER BY `computers`.`OrderDate` ASC ");
+                    } else {
+                        $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' ORDER BY `computers`.`OrderDate` ASC ");
+                    }
                     while ($user_name = mysqli_fetch_array($comp_result)) {
                         echo "<tr>";
                         table_td($user_name['ComputerName']);

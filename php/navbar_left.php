@@ -1,8 +1,4 @@
 <?php
-include __DIR__ . '/../../src/connect.php';
-if (mysqli_connect_errno()) {
-    echo "Connect failed";
-}
 function getComputerNames($comp_name)
 {
     printf("
@@ -28,17 +24,24 @@ function getUserNames($comp_name, $user_name)
 </li>\n", $comp_name, $user_name, $user_name); // print out user names
 }
 
-// For the side navbar, shows all the available computers
-$stmtQuery1 = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
-while ($comp_name = mysqli_fetch_array($stmtQuery1)) {
-    if ($comp_name[0] != null) {
-        getComputerNames($comp_name[0]);
-
-        $stmtQuery2 = mysqli_query($cxn, "SELECT DISTINCT users FROM computers WHERE ComputerName='$comp_name[0]'");
-        while ($user_name = mysqli_fetch_array($stmtQuery2)) {
-            getUserNames($comp_name[0], $user_name[0]);
-        }
-        printf("</ul>\n");
+function setSideBarNav($cxn, $query)
+{
+    // For the side navbar, shows all the available computers
+    if ($query != null) {
+        $stmtQuery1 = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers WHERE ComputerName LIKE '%$query%'");
+    } else {
+        $stmtQuery1 = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
     }
+    while ($comp_name = mysqli_fetch_array($stmtQuery1)) {
+        if ($comp_name[0] != null) {
+            getComputerNames($comp_name[0]);
+
+            $stmtQuery2 = mysqli_query($cxn, "SELECT DISTINCT users FROM computers WHERE ComputerName='$comp_name[0]'");
+            while ($user_name = mysqli_fetch_array($stmtQuery2)) {
+                getUserNames($comp_name[0], $user_name[0]);
+            }
+            printf("</ul>\n");
+        }
+    }
+    printf("</li>");
 }
-printf("</li>");
