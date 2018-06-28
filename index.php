@@ -196,6 +196,7 @@ $question = $_GET['q'];
 <!-- Graphs -->
 <script src="js/Chart.js"></script>
 <script>
+    // set up away to 
     const ctx = document.getElementById("myChart");
     new Chart(ctx, {
         type: 'line',

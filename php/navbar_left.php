@@ -16,12 +16,12 @@ function getComputerNames($comp_name)
     <ul>", $comp_name, $comp_name);
 }
 
-function getUserNames($comp_name, $user_name)
+function getUserNames($comp_name, $user_name, $query)
 {
     printf("
 <li>
-    <a class=\"nav-link\" href=\".?id=%s&user=%s\">%s</a>
-</li>\n", $comp_name, $user_name, $user_name); // print out user names
+    <a class=\"nav-link\" href=\".?id=%s&user=%s&q=%s\">%s</a>
+</li>\n", $comp_name, $user_name, $query, $user_name); // print out user names
 }
 
 function setSideBarNav($cxn, $query)
@@ -38,7 +38,7 @@ function setSideBarNav($cxn, $query)
 
             $stmtQuery2 = mysqli_query($cxn, "SELECT DISTINCT users FROM computers WHERE ComputerName='$comp_name[0]'");
             while ($user_name = mysqli_fetch_array($stmtQuery2)) {
-                getUserNames($comp_name[0], $user_name[0]);
+                getUserNames($comp_name[0], $user_name[0], $query);
             }
             printf("</ul>\n");
         }
