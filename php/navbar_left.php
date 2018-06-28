@@ -31,7 +31,7 @@ function getUserNames($comp_name, $user_name)
 // For the side navbar, shows all the available computers
 $stmtQuery1 = mysqli_query($cxn, "SELECT DISTINCT ComputerName FROM computers");
 while ($comp_name = mysqli_fetch_array($stmtQuery1)) {
-    if ($comp_name[0] != null) { // no null strings
+    if ($comp_name[0] != null) {
         getComputerNames($comp_name[0]);
 
         $stmtQuery2 = mysqli_query($cxn, "SELECT DISTINCT users FROM computers WHERE ComputerName='$comp_name[0]'");
