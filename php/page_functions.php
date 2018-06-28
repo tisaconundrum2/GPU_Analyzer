@@ -45,3 +45,18 @@ function setSideBarNav($cxn, $query)
     }
     printf("</li>");
 }
+
+function table_td($string)
+{
+    echo "<td>" . $string . "</td>";
+}
+
+function queryComputerUsages($cxn, $user, $id, $date, $days=5)
+{
+    $p_date = strtotime("+$days day", strtotime($date));
+    if ($user != null) {
+        return mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' AND users='$user' AND OrderDate BETWEEN '$date' AND '$p_date' ORDER BY `computers`.`OrderDate` ASC ");
+    } else {
+        return mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' AND OrderDate BETWEEN '$date' AND '$p_date' ORDER BY `computers`.`OrderDate` ASC ");
+    }
+}

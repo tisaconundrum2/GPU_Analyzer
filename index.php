@@ -1,6 +1,6 @@
 <?php
 include __DIR__ . '/../src/connect.php';
-include './php/navbar_left.php';
+include './php/page_functions.php';
 if (mysqli_connect_errno()) {
     echo "Connect failed";
 }
@@ -143,16 +143,7 @@ $question = $_GET['q'];
                     </thead>
                     <tbody>
                     <?php
-                    function table_td($string)
-                    {
-                        echo "<td>" . $string . "</td>";
-                    }
-
-                    if ($user != null) {
-                        $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' AND users='$user' ORDER BY `computers`.`OrderDate` ASC ");
-                    } else {
-                        $comp_result = mysqli_query($cxn, "SELECT * FROM computers WHERE ComputerName='$id' ORDER BY `computers`.`OrderDate` ASC ");
-                    }
+                    $comp_result = queryComputerUsages($cxn, $user, $id);
                     while ($user_name = mysqli_fetch_array($comp_result)) {
                         echo "<tr>";
                         table_td($user_name['ComputerName']);
@@ -196,12 +187,21 @@ $question = $_GET['q'];
 <!-- Graphs -->
 <script src="js/Chart.js"></script>
 <script>
-    // set up away to 
+    // set up away to
+
     const ctx = document.getElementById("myChart");
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["2018-06-07", "2018-06-08", "2018-06-09", "2018-06-10", "2018-06-11", "2018-06-12", "2018-06-13", "2018-06-14"],
+            // "2018-06-07", "2018-06-08", "2018-06-09", "2018-06-10", "2018-06-11", "2018-06-12", "2018-06-13", "2018-06-14"
+            labels: [
+                <?php
+                $comp_result = queryComputerUsages($cxn, $user, $id);
+                while ($user_name = mysqli_fetch_array($comp_result)) {
+                    echo '"' . $user_name['OrderDate'] . '"' . ',';
+                }
+                ?>
+            ],
             datasets: [{
                 data: [51.03, 42.14, 40.94, 46.23, 37.46, 40.3, 50.31, 45.36
                 ],
