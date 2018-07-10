@@ -10,6 +10,7 @@ if (mysqli_connect_errno()) {
 $id = $_GET['id'];
 $user = $_GET['user'];
 $question = $_GET['q'];
+$date = $_GET['date'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +100,8 @@ $question = $_GET['q'];
                     </div>
                     <form action="" style="margin-bottom: 0px;">
                         <div class="btn-group mr-2">
-                            <input type="date" name="bday" class="form-control">
+                            <input type="date" name="date" class="form-control">
                             <button type="submit" class="btn btn-sm btn-outline-secondary">Submit</button>
-
                         </div>
                     </form>
 
