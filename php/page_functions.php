@@ -53,7 +53,6 @@ function table_td($string)
 
 function queryComputerUsages($cxn, $user, $id, $date, $days = 5)
 {
-    echo stop;
     $p_date = date("Y-m-d", strtotime("+$days day", strtotime($date)));
     $full_query = "SELECT * FROM computers WHERE ComputerName='$id' ";
     if ($user) {
@@ -64,5 +63,5 @@ function queryComputerUsages($cxn, $user, $id, $date, $days = 5)
         $full_query .= "AND OrderDate BETWEEN '$date' AND '$p_date' ";
     }
     $full_query .= "ORDER BY `computers`.`OrderDate` ASC";
-    return $full_query;
+    return mysqli_query($cxn, $full_query);
 }

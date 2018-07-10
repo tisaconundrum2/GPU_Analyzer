@@ -194,7 +194,7 @@ $date = $_GET['date'];
             // "2018-06-07", "2018-06-08", "2018-06-09", "2018-06-10", "2018-06-11", "2018-06-12", "2018-06-13", "2018-06-14"
             labels: [
                 <?php
-                $comp_result = queryComputerUsages($cxn, $user, $id);
+                $comp_result = queryComputerUsages($cxn, $user, $id, $date);
                 while ($user_name = mysqli_fetch_array($comp_result)) {
                     echo '"' . $user_name['OrderDate'] . '"' . ',';
                 }
