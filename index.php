@@ -58,8 +58,7 @@ $date = $_GET['date'];
 <form action="">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU - GPU utilizations</a>
-        <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text"
-               name="q">
+        <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text" name="q">
         <!--    Sign in button. Not applicable quite yet    -->
         <!--        <ul class="navbar-nav px-3">-->
         <!--            <li class="nav-item text-nowrap">-->
@@ -73,8 +72,7 @@ $date = $_GET['date'];
     <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <?php setSideBarNav($cxn, $question) ?>
+                <ul class="nav flex-column" id="sidebar">
                 </ul>
             </div>
         </nav>
