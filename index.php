@@ -9,7 +9,6 @@ if (mysqli_connect_errno()) {
 //This means we can specify directly with links
 $id = $_GET['id'];
 $user = $_GET['user'];
-$question = $_GET['q'];
 $date = $_GET['date'];
 ?>
 <!DOCTYPE html>
