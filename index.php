@@ -1,4 +1,5 @@
 <?php
+session_start();
 include __DIR__ . '/../src/connect.php';
 include './php/page_functions.php';
 if (mysqli_connect_errno()) {
@@ -11,6 +12,22 @@ $id = $_GET['id'];
 $user = $_GET['user'];
 $question = $_GET['q'];
 $date = $_GET['date'];
+
+if ($id != null) {
+    $_SESSION["id"] = $id;
+}
+
+if ($user != null){
+    $_SESSION["user"] = $user;
+}
+
+if ($question != null){
+    $_SESSION["question"] = $question;
+}
+
+if ($date != null){
+    $_SESSION["date"] = $date;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -65,3 +65,10 @@ function queryComputerUsages($cxn, $user, $id, $date, $days = 5)
     $full_query .= "ORDER BY `computers`.`OrderDate` ASC";
     return mysqli_query($cxn, $full_query);
 }
+
+function checkCookie(){
+    setcookie("test_cookie", "test", time() + 3600, '/');
+    if (count($_COOKIE) <= 0){
+        echo "Cookies are disabled. Please enable cookie use";
+    }
+}
