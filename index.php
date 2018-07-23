@@ -4,40 +4,40 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description"
+          content="GPUtilization. A website dedicated to helping IT gather information on GPU utilizations across the network">
+    <meta name="author" content="Nicholas Finch">
     <link rel="icon" href="https://getbootstrap.com/favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Dashboard for GPUtil</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <style type="text/css">/* Chart.js */
-    @-webkit-keyframes chartjs-render-animation {
-        from {
-            opacity: 0.99
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
         }
-        to {
-            opacity: 1
-        }
-    }
 
-    @keyframes chartjs-render-animation {
-        from {
-            opacity: 0.99
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
         }
-        to {
-            opacity: 1
-        }
-    }
 
-    .chartjs-render-monitor {
-        -webkit-animation: chartjs-render-animation 0.001s;
-        animation: chartjs-render-animation 0.001s;
-    }</style>
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }</style>
 </head>
 
 <body data-gr-c-s-loaded="true">
