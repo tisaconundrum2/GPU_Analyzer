@@ -41,10 +41,18 @@
 </head>
 
 <body data-gr-c-s-loaded="true">
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-    <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text">
-</nav>
+<form action="">
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">ASU - GPU utilizations</a>
+        <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text" name="q">
+        <!--    Sign in button. Not applicable quite yet    -->
+        <!--        <ul class="navbar-nav px-3">-->
+        <!--            <li class="nav-item text-nowrap">-->
+        <!--                <a class="nav-link" href="#">Sign out</a>-->
+        <!--            </li>-->
+        <!--        </ul>-->
+    </nav>
+</form>
 
 <div class="container-fluid">
     <div class="row">
