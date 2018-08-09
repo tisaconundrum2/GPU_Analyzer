@@ -2,3 +2,5 @@ Website/.idea/workspace.xml
 .idea/
 Website/.idea
 *.dat
+gpuAnalyzer/node_modules
+node_modules
